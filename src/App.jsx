@@ -1,11 +1,28 @@
-import React from "react";
-import Home from "./components/Home"
+import React, { useState } from "react";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Welcome from "./components/Welcome";
 
-const App = ({name, age}) =>{
+const App = () =>{
+    const [data, setData] = useState(false);
+
+    const hanldeDataShow = () =>{
+        setData(true)
+    }
+
     return (
         <div>
-            This is my App with name as{name} and age = {age}.
-            <Home  name={name} age={age}/>
+            <Router>
+                {data && <NavBar/>}
+                <Routes>
+                    <Route exact path="/" element={!data ?<Home/> : <Welcome/>}></Route>
+                    <Route exact path="/login" element={<Login showNavBAr={hanldeDataShow}/>}></Route>
+                    <Route exact path="/signup" element={<Signup/>}></Route>
+                </Routes>
+            </Router>
         </div>
     )
 }
