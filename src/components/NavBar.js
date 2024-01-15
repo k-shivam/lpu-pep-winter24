@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
-const NavBar = () =>{
+const NavBar = (props) =>{
+    const navigate = useNavigate()
+    const {hideNavBar} = props;
+
+    const handelLogout = () =>{
+        navigate("/")
+        hideNavBar()
+    }
+
     return (
         <nav className='navbar'>
             <div className='navbar-item'>
@@ -13,7 +21,7 @@ const NavBar = () =>{
                 <Link to="/counter">Counter</Link>
             </div>
             <div className='navbar-end'>
-                <button className='button is-primary'>Logout</button>
+                <button className='button is-primary' onClick={handelLogout}>Logout</button>
             </div>
         </nav>
     )

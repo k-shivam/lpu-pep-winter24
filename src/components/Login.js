@@ -28,35 +28,37 @@ const Login = (props) =>{
     }
 
     return (
-        <section className="section">
-            <div className="container">
-                <div className="columns is-centered">
-                    <div className="column is-half">
-                <form onSubmit={handleSubmit}>
-                    <div className="field">
-                        <label>Email</label>
-                        <input 
-                            type="email"
-                            name="email"
-                            placeholder="email"
-                            value={data.email}
-                            onChange={handleChange}>
-                        </input>
-                    </div>
-                    <div className="field">
-                        <label>Password</label>
-                        <input 
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            value={data.password}
-                            onChange={handleChange}>
-                        </input>
-                    </div>
+        <section className="hero is-fullheight is-dark">
+            <div className="hero-head">
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="box">
+                            <form onSubmit={handleSubmit}>
+                                <div className="field">
+                                    <label className="label">Email</label>
+                                    <input className="input"
+                                        type="email"
+                                        name="email"
+                                        placeholder="email"
+                                        value={data.email}
+                                        onChange={handleChange}>
+                                    </input>
+                                </div>
+                                <div className="field">
+                                    <label className="label">Password</label>
+                                    <input className="input"
+                                        type="password"
+                                        name="password"
+                                        placeholder="password"
+                                        value={data.password}
+                                        onChange={handleChange}>
+                                    </input>
+                                </div>
                     <div>
-                        <button className="button is-warning">Submit</button>
+                        <button className="button is-primary">Submit</button>
                     </div>
                 </form>
+                </div>
                 </div>
                 </div>
             </div>

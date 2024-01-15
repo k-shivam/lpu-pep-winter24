@@ -18,7 +18,7 @@ const Home = () => {
                     <div className="container">
                         <div className="has-text-centered">
                             <img src={image_url}></img>
-                            <h1 className="titel">This is our main Home page</h1>
+                            <h1 className="title">This is our main Home page</h1>
                             <p className="subtitle">We can Add login and signup button here</p>
                             <button className="button is-success mr-2" onClick={handleLogin}>Login</button>
                             <button className="button is-success">Signup</button>

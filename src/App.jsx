@@ -13,10 +13,14 @@ const App = () =>{
         setData(true)
     }
 
+    const hideNavBar = () =>{
+        setData(false);
+    }
+
     return (
         <div>
             <Router>
-                {data && <NavBar/>}
+                {data && <NavBar hideNavBar={hideNavBar}/>}
                 <Routes>
                     <Route exact path="/" element={!data ?<Home/> : <Welcome/>}></Route>
                     <Route exact path="/login" element={<Login showNavBAr={hanldeDataShow}/>}></Route>
