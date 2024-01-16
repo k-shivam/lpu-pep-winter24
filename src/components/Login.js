@@ -8,9 +8,10 @@ const Login = (props) =>{
         email: "",
         password: ""
     })
+
     const [errors, setErrors] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
     })
 
     const handleSubmit = (event) =>{
@@ -19,7 +20,6 @@ const Login = (props) =>{
             navigate('/')
             showNavBAr()
         }
-
     }
 
     const handleChange = (event) =>{
@@ -29,8 +29,6 @@ const Login = (props) =>{
                 ...data, 
                 [name]: value,
             })
-        console.log(data)
-
     }
 
     const validateForm = () =>{
@@ -38,16 +36,16 @@ const Login = (props) =>{
         if(!data.email){
             setErrors((prevErrors) =>({
                 ...prevErrors,
-                email: "Please Enter valid email address"
+                email: "Please provide an valid email address"
             }))
             valid = false;
         }
-        if(!data.password || data.password.length <6){
+        if(!data.password || data.password.length < 6){
             setErrors((prevErrors) =>({
                 ...prevErrors,
-                password: "Password must be atleast 6 characters"
+                password: "Password must be atleast six chars long"
             }))
-            valid = false;
+            valid = false
         }
         return valid
     }
@@ -61,29 +59,25 @@ const Login = (props) =>{
                             <form onSubmit={handleSubmit}>
                                 <div className="field">
                                     <label className="label">Email</label>
-                                    <input className={`input ${errors.email && "is-danger"}`}
+                                    <input className="input"
                                         type="email"
                                         name="email"
                                         placeholder="email"
                                         value={data.email}
                                         onChange={handleChange}>
                                     </input>
-                                    {errors.email && (
-                                    <p className="help is-danger">{errors.email}</p>
-                                    )}
+                                    {errors.email && <p className="is-danger">{errors.email}</p>}
                                 </div>
                                 <div className="field">
                                     <label className="label">Password</label>
-                                    <input className={`input ${errors.password && "is-danger"}`}
+                                    <input className="input"
                                         type="password"
                                         name="password"
                                         placeholder="password"
                                         value={data.password}
                                         onChange={handleChange}>
                                     </input>
-                                    {errors.password && (
-                                        <p className="help is-danger">{errors.password}</p>
-                                    )}
+                                    {errors.password && <p className="is danger">{errors.password}</p>}
                                 </div>
                     <div>
                         <button className="button is-primary">Submit</button>
