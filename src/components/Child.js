@@ -4,7 +4,7 @@ const Child = (props) =>{
     const {name, age} = props;
     return(
         <div>
-            I don't want any props;
+            <h1 className="title">I don't want any props;</h1>
             <GrandChild name={name} age={age}/>
         </div>
     )
