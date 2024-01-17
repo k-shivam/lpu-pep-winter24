@@ -66,7 +66,12 @@ const Login = (props) =>{
                                         value={data.email}
                                         onChange={handleChange}>
                                     </input>
-                                    {errors.email && <p className="is-danger">{errors.email}</p>}
+                                    {errors.email && (
+                                        <h1 style={{color:'red'}}>
+                                        {errors.email}
+                                    </h1>
+                                    )}
+
                                 </div>
                                 <div className="field">
                                     <label className="label">Password</label>
@@ -77,7 +82,7 @@ const Login = (props) =>{
                                         value={data.password}
                                         onChange={handleChange}>
                                     </input>
-                                    {errors.password && <p className="is danger">{errors.password}</p>}
+                                    {errors.password && <p style={{color:'red'}}>{errors.password}</p>}
                                 </div>
                     <div>
                         <button className="button is-primary">Submit</button>
