@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 const NavBar = () =>{
     
     return (
-        <>
-        <div>
+        <nav className='navbar'>
+        <div className='navbar-item'>
             <Link to="/home">Home</Link>
         </div>
-        <div>
-            <Link to="/child">Child</Link>
+        <div className='navbar-item'>
+            <Link to="/about">About</Link>
         </div>
-        </>
+        <div className='navbar-end'>
+            <button className='button is-primary'>Logout</button>
+        </div>
+        </nav>
     )
 }
 
