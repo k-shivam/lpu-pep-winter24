@@ -1,6 +1,6 @@
 [
   {
-    "fullName": "Surya Kumar",
+    "fullName": "Rohit Sharma",
     "email": "shim@gmail.com",
     "password": 123422,
     "id": 974
@@ -12,7 +12,7 @@
     "id": 902
   },
   {
-    "fullName": "Kumar",
+    "fullName": "Akhil Kumar",
     "email": "kgmail.com",
     "password": 1234567,
     "id": 93
@@ -22,5 +22,11 @@
     "email": "ad@gmail.com",
     "password": "123456",
     "id": 541
+  },
+  {
+    "fullName": "bhutn",
+    "email": "ad@gmail.com",
+    "password": "12345678",
+    "id": 117
   }
 ]

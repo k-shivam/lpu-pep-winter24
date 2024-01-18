@@ -1,6 +1,5 @@
 import {useNavigate} from 'react-router-dom';
-import HomeImage from '../assets/download.jpeg'
-
+import HomeImage from '../assets/download.jpeg';
 
 
 const Home = () => {
