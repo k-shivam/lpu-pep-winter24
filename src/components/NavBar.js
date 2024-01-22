@@ -2,17 +2,17 @@ import { Link, useNavigate} from 'react-router-dom';
 
 const NavBar = (props) =>{
     const navigate = useNavigate()
-    const {hideNavBar} = props;
 
     const handelLogout = () =>{
+        props.hideNavBar()
         navigate("/")
-        hideNavBar()
     }
 
     return (
+        <>
         <nav className='navbar'>
             <div className='navbar-item'>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
             </div>
             <div className='navbar-item'>
                 <Link to="/about">About</Link>
@@ -24,6 +24,7 @@ const NavBar = (props) =>{
                 <button className='button is-primary' onClick={handelLogout}>Logout</button>
             </div>
         </nav>
+        </>
     )
 }
 

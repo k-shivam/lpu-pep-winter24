@@ -1,9 +1,10 @@
 import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios";
 
 const Login = (props) =>{
-    const {showNavBAr} = props;
     const navigate = useNavigate();
+    const [userId, setUserId] = useState('')
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -14,11 +15,19 @@ const Login = (props) =>{
         password: ""
     })
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = async(event) =>{
         event.preventDefault()
         if(validateForm()){
-            navigate('/')
-            showNavBAr()
+            // try{
+            //     const resp = await axios.post("http://127.0.0.1:3002/signin", data);
+            //     const token = resp.data.token;
+            //     localStorage.setItem("token", token)
+            //     localStorage.setItem("userId", parseInt(resp.data.data.id))
+            // }catch(err){
+            //     console.log(err);
+            // }
+            props.hanldeDataShow()
+            navigate('/home')
         }
     }
 

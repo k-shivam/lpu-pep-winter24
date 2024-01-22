@@ -5,9 +5,11 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Welcome from "./components/Welcome";
+import Counter from "./components/Counter";
 
 const App = () =>{
     const [data, setData] = useState(false);
+
 
     const hanldeDataShow = () =>{
         setData(true)
@@ -22,9 +24,11 @@ const App = () =>{
             <Router>
                 {data && <NavBar hideNavBar={hideNavBar}/>}
                 <Routes>
-                    <Route exact path="/" element={!data ?<Home/> : <Welcome/>}></Route>
-                    <Route exact path="/login" element={<Login showNavBAr={hanldeDataShow}/>}></Route>
+                    <Route exact path="/" element={<Home/>}></Route>
+                    <Route exact path="/login" element={<Login hanldeDataShow={hanldeDataShow}/>}></Route>
                     <Route exact path="/signup" element={<Signup/>}></Route>
+                    <Route exact path="/counter" element={<Counter/>}></Route>
+                    <Route exact path="/home" element={<Welcome/>}></Route>
                 </Routes>
             </Router>
         </div>

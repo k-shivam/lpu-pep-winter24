@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TableComponent = ({ data, onEdit,  onDelete}) => {
+
   const renderTableHeader = () => {
     if (data.length === 0) return null;
     const headers = Object.keys(data[0]);
@@ -22,12 +23,17 @@ const TableComponent = ({ data, onEdit,  onDelete}) => {
           <td key={index}>{value}</td>
         ))}
         <td>
-          <button className="button is-warning" onClick={() => onEdit(item)}>
+          <button 
+              className="button is-warning" 
+              onClick={() => onEdit(item.id)}
+              >
             Edit
           </button>
         </td>
         <td>
-          <button className="button is-danger" onClick={() => onDelete(item)}>
+           <button 
+                className="button is-danger" 
+                onClick={() => onDelete(item.id)}>
             Delete
           </button>
         </td>

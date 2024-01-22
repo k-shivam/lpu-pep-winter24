@@ -1,0 +1,13 @@
+Redux architecture
+
+Context API	                        Vs                     Redux
+1. Built-in tool that ships with React.	         1. Additional installation Required, driving up the final bundle size.
+2. Requires minimal Setup.                       2. Requires extensive setup to integrate it with a React Application.
+3. Specifically designed for static data,        3. Works like a charm with both static and dynamic data.
+that is not often refreshed or updated.	         4. Easily extendible due to the ease of adding new data/actions after the initial setup
+4. Adding new contexts requires creation         
+from scratch.                         	
+5. Debugging can be hard in highly nested        5. Incredibly powerful Redux Dev Tools to ease debugging.
+React Component Structure even with Dev Tool	
+6. UI logic and State Management Logic are       6. Better code organization with separate UI logic and State Management Logic
+in the same component.	

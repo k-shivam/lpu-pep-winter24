@@ -1,0 +1,20 @@
+[
+  {
+    "postId": 123,
+    "userId": 541,
+    "title": "Ayodhaya",
+    "description": "A tale about god Ram"
+  },
+  {
+    "postId": 79,
+    "userId": 541,
+    "description": "A powerful tool for front-end dev",
+    "title": "React"
+  },
+  {
+    "postId": 675,
+    "userId": 93,
+    "description": "This is Higher Order Component",
+    "title": "HOC"
+  }
+]
