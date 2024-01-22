@@ -28,7 +28,7 @@ const App = () =>{
             <Router>
                 {showNav && <NavBar navBar={changeOnLogout}/>}
                 <Routes>
-                    <Route exact path="/home" element={showNav ? <Welcome/> : <Home/>}></Route>
+                    <Route exact path="/" element={showNav ? <Welcome/> : <Home/>}></Route>
                     <Route exact path="/about" element={<GrandChild/>}></Route>
                     <Route exact path="/login" element={<Login navBar={changeShowNavValue}/>}></Route>
                     <Route exact path="/signup" element={<SignUp/>}></Route>

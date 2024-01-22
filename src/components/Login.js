@@ -27,7 +27,7 @@ const Login = (props) =>{
         event.preventDefault()
         if(validateForm()){
             navBar()
-            navigate('/home')
+            navigate('/')
         }
         else{
             console.log(errors)
@@ -51,7 +51,6 @@ const Login = (props) =>{
 
 
     return (
-        <>
         <div className="container">
             <form onSubmit={handleSubmit}>
                 <div className="field">
@@ -83,7 +82,6 @@ const Login = (props) =>{
                 </div>
             </form>
         </div>
-        </>
     )
 }
 
