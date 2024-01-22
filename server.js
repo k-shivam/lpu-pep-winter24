@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 const app = express()
 app.use(cors())
@@ -10,6 +11,12 @@ app.use(bodyParser.json());
 
 const PORT = 3002
 const dataFile = 'data.json'
+
+const options = {
+  expiresIn: '1h', 
+  algorithm: 'HS256', 
+};
+
 
 const readData = () =>{
     const rawData = fs.readFileSync(dataFile);
@@ -35,6 +42,39 @@ app.post('/addUser', async(req, res) =>{
     writeData(data);
     res.json(req.body);
 })
+
+
+app.post('/signin', async (req, res) => {
+  const { email, password } = req.body;
+  console.log(password)
+  const data = readData();
+  let token;
+  let filteredData = data.filter((item) => {
+    return item.email === email && item.password === password;
+  });
+
+  if (filteredData.length > 0) {
+    const payload = {
+      userId: filteredData[0].userId,
+      email: filteredData[0].email,
+    };
+
+    const options = {
+      expiresIn: '1h',
+      algorithm: 'HS256',
+    };
+
+    token = jwt.sign(payload, "HMawerrrrr", options);
+
+    res.json({
+      data: filteredData[0],
+      token: token,
+    });
+  } else {
+    res.status(401).json({ error: 'Invalid credentials' });
+  }
+});
+
 
 app.put('/:id', (req, res) =>{
     const data = readData()

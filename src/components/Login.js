@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Login = (props) =>{
     const {navBar} = props;
@@ -23,9 +24,10 @@ const Login = (props) =>{
         })
     }
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = async(event) =>{
         event.preventDefault()
         if(validateForm()){
+            const resp = await axios.post("http://127.0.0.1:3002/signin", formData);
             navBar()
             navigate('/')
         }
