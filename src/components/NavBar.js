@@ -1,15 +1,17 @@
 import { Link, useNavigate} from 'react-router-dom';
 
-const NavBar = (props) =>{
+const NavBar = () =>{
     const navigate = useNavigate()
+    const token = localStorage.getItem("token")
 
     const handelLogout = () =>{
-        props.hideNavBar()
-        navigate("/")
+        localStorage.clear()
+        navigate("/home")
     }
 
     return (
         <>
+        {token &&
         <nav className='navbar'>
             <div className='navbar-item'>
                 <Link to="/home">Home</Link>
@@ -23,7 +25,7 @@ const NavBar = (props) =>{
             <div className='navbar-end'>
                 <button className='button is-primary' onClick={handelLogout}>Logout</button>
             </div>
-        </nav>
+        </nav>}
         </>
     )
 }

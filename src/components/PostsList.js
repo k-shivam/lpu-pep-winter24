@@ -5,12 +5,12 @@ import axios from 'axios';
 import TableReresentation from './TableRepresentation';
 import AuthProvider from './AuthProvider';
 
-const Welcome = () => {
+const PostsList = () => {
     const navigate = useNavigate();
     const [apiData, setApiData] = useState([]);
 
     const getApiData = async() =>{
-        const response = await axios.get("http://127.0.0.1:3002/");
+        const response = await axios.get("http://127.0.0.1:3002/posts");
         setApiData(response.data)
     }
 
@@ -18,36 +18,42 @@ const Welcome = () => {
         getApiData()
     },[apiData])
 
-    const handleSignupclick = () =>{
-        navigate('/signup');
+    const handleClick = () =>{
+        navigate("/create/post")
     }
+
 
     const handleEdit = async(id) =>{
         console.log(id)
-        const payload = {fullName:"Akhil Kumar"}
+        const payload = {title:"Angular"}
         try{
-            await axios.put(`http://127.0.0.1:3002/${id}`, payload);
+            await axios.put(`http://127.0.0.1:3002/post/${id}`, payload);
             getApiData()
         }catch(error){
             console.log(error)
         }
     }
 
-    const handleDelete = (row) =>{
-        console.log('Delete clicked for row:', row)
+    const handleDelete = async(id) =>{
+        try{
+            await axios.delete(`http://127.0.0.1:3002/post/${id}`);
+            getApiData();
+        }catch(err){
+            console.log(err)
+        }
     }
 
     
     return (
         <section className="hero is-fullheight is-dark">
             <div className="hero-head">
+                <h1 style={{backgroundColor:'grey', fontSize:"50px", textAlign:"center"}}>Posts List</h1>
+                <button className='button is-success' onClick={handleClick}>Create Post</button>
                 <br></br>
-                <button className='button is-success' onClick={handleSignupclick}>Add User</button>
                 <div className="hero-body">
                     <div className="container">
                         <div className="has-text-centered">
                             <TableReresentation 
-                                // columns={columns} 
                                 data={apiData}
                                 onEdit={handleEdit}
                                 onDelete={handleDelete}
@@ -61,4 +67,4 @@ const Welcome = () => {
 }
 
 
-export default AuthProvider(Welcome);
+export default AuthProvider(PostsList);

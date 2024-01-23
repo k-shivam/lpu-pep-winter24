@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TableComponent = ({ data, onEdit,  onDelete}) => {
+  const userId = localStorage.getItem("userId");
 
   const renderTableHeader = () => {
     if (data.length === 0) return null;
@@ -16,27 +17,28 @@ const TableComponent = ({ data, onEdit,  onDelete}) => {
     )
   };
 
+
   const renderTableRows = () => {
     return data.map((item, index) => (
       <tr className="has-text-left" key={index}>
         {Object.values(item).map((value, index) => (
           <td key={index}>{value}</td>
         ))}
-        <td>
+        {userId == item.userId && <td>
           <button 
               className="button is-warning" 
-              onClick={() => onEdit(item.id)}
+              onClick={() => onEdit(item.postId)}
               >
             Edit
           </button>
-        </td>
-        <td>
+        </td>}
+        { userId == item.userId && <td>
            <button 
                 className="button is-danger" 
-                onClick={() => onDelete(item.id)}>
+                onClick={() => onDelete(item.postId)}>
             Delete
           </button>
-        </td>
+        </td>}
       </tr>
     ));
   };

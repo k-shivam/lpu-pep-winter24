@@ -1,0 +1,37 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {lazy, Suspense} from "react";
+
+const PostsList = lazy(() => import("./PostsList"));
+const Home = lazy(() => import("./Home"));
+const NavBar = lazy(() => import("./NavBar"))
+const SignUp = lazy(() => import("./Signup"))
+const Login = lazy(() => import("./Login"))
+const CreatePost = lazy(() => import("./CreatePost"))
+const About = lazy(() => import("./About"))
+const Counter = lazy(() => import("./Counter"))
+
+
+const Routing = () =>{
+
+    return (
+        <div>
+            <Router>
+                <NavBar/>
+                <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route exact path="/" element={<PostsList/>}></Route>
+                    <Route exact path="/login" element={<Login/>}></Route>
+                    <Route exact path="/signup" element={<SignUp/>}></Route>
+                    <Route exact path="/home" element={<Home/>}></Route>
+                    <Route exact path="/about" element={<About/>}></Route>
+                    <Route exact path="/counter" element={<Counter/>}></Route>
+                    <Route exact path="/create/post" element={<CreatePost/>}></Route> 
+                </Routes>
+                </Suspense>
+            </Router>
+        </div>
+    )
+
+}
+
+export default Routing;
