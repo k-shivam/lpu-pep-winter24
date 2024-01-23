@@ -8,6 +8,10 @@ const Home = () =>{
         navigate("/login");
     }
 
+    const handleSignup = () =>{
+        navigate("/signup");
+    }
+
     return(
         <section className="hero is-dark is-fullheight">
         <div className="hero-body">
@@ -16,7 +20,7 @@ const Home = () =>{
             <h1 className="title">Welcome to our homepage</h1>
             <p className="subtitle">You must login or signup to see details of the site.</p>
             <button className="button is-danger mr-2" onClick={handleLogin}>Login</button> 
-            <button className="button is-primary">SignUp</button> 
+            <button className="button is-primary" onClick={handleSignup}>SignUp</button> 
         </div>
         </div>
         </section>

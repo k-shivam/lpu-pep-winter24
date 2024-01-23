@@ -1,3 +1,4 @@
+import AuthProvider from "./AuthProvider";
 
 const GrandChild = (props) =>{
     const {name, age} = props;
@@ -10,4 +11,4 @@ const GrandChild = (props) =>{
     )
 }
 
-export default GrandChild;
+export default AuthProvider(GrandChild);

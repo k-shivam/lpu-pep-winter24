@@ -28,6 +28,9 @@ const Login = (props) =>{
         event.preventDefault()
         if(validateForm()){
             const resp = await axios.post("http://127.0.0.1:3002/signin", formData);
+            const resData = resp.data
+            localStorage.setItem("token", resData.token)
+            localStorage.setItem("userId", resData.data.id);
             navBar()
             navigate('/')
         }

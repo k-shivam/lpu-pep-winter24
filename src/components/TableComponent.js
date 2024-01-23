@@ -1,6 +1,7 @@
 
 const TableComponent = (props) =>{
     const {data, onEdit, onDelete} = props;
+    const userId = localStorage.getItem("userId");
 
     const renderTableHeaders = () =>{
         if(data.length === 0) return null;
@@ -10,11 +11,11 @@ const TableComponent = (props) =>{
             <>
             {headers.map((header, index) =>{
                 return(
-                    <th key={index}>{header}</th>
+                    <th className="has-text-centered" key={index}>{header}</th>
                 )
             })}
-            <th>Edit</th>
-            <th>Delete</th>
+            <th className="has-text-centered">Edit</th>
+            <th className="has-text-centered">Delete</th>
             </>
         )
     }
@@ -22,18 +23,28 @@ const TableComponent = (props) =>{
     const renderTableRows = () =>{
         return data.map((item, index) =>{
             return(
-                <tr key={item.id}>
+                <tr key={item.postId}>
                     {Object.values(item).map((value, index) =>{
                         return (
-                            <td key={value.id}>{value}</td>
+                            <td key={value.postId}>{value}</td>
                         )
                     })}
-                    <td>
-                        <button className="button is-warning" onClick={() =>onEdit(item.id)}>Edit</button>
-                    </td>
-                    <td>
-                        <button className="button is-danger" onClick={()=>onDelete(item.id)}>Delete</button>
-                    </td>
+                    {userId == item.userId && <td>
+                        <button 
+                            className="button is-warning" 
+                            onClick={() =>onEdit(item.postId)}
+                            >
+                                Edit
+                        </button>
+                    </td>}
+                    {userId == item.userId && <td>
+                        <button 
+                            className="button is-danger" 
+                            onClick={()=>onDelete(item.postId)}
+                        >
+                            Delete
+                        </button>
+                    </td>}
                 </tr>
             )
         })

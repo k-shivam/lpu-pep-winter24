@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
+import AuthProvider from "./AuthProvider";
 
 import TableComponent from "./TableComponent";
 
@@ -49,4 +50,4 @@ const Welcome = () =>{
         </>
     )
 }
-export default Welcome;
+export default AuthProvider(Welcome);

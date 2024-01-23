@@ -23,14 +23,71 @@ const readData = () =>{
     return JSON.parse(rawData);
 }
 
+const postData = () =>{
+  const rawData = fs.readFileSync("db.json");
+  return JSON.parse(rawData);
+}
+
 const writeData = (data) => {
     fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
+};
+
+const writePostData = (data) => {
+  fs.writeFileSync("db.json", JSON.stringify(data, null, 2));
 };
 
 app.get('/', async(req, res) =>{
     const data = readData();
     res.json(data)
 })
+
+app.get('/posts', async(req, res) =>{
+  const data = postData();
+  res.json(data)
+})
+
+app.post('/posts/create', async(req, res) =>{
+  const { authorization } = req.headers;
+  const tokenData = jwt.decode(authorization)
+  console.log(tokenData)
+  const id = Math.round(Math.random()*999)
+  const {title, description, userId} = req.body;
+  const data = postData()
+  let objToInsert = {
+    userId:parseInt(userId), postId:id, title, description
+  }
+  data.push(objToInsert)
+  writePostData(data);
+  res.json(req.body);
+})
+
+app.put('/post/:id', (req, res) =>{
+  const data = postData()
+  const id = req.params.id
+  const updateItems = req.body;
+  const index = data.findIndex(item => item.postId === parseInt(id));
+  console.log(index, id)
+  if (index !== -1) {
+      data[index] = { ...data[index], ...updateItems };
+      writePostData(data);
+      res.json(data[index]);
+    } else {
+      res.status(404).json({ error: 'Item not found' });
+    }
+})
+
+app.delete('/post/:id', (req, res) => {
+  const data = postData();
+  const id = req.params.id;
+  const index = data.findIndex(item => item.postId === parseInt(id));
+  if (index !== -1) {
+    const deletedItem = data.splice(index, 1)[0];
+    writePostData(data);
+    res.json(postData());
+  } else {
+    res.status(404).json({ error: 'Item not found' });
+  }
+});
 
 app.post('/addUser', async(req, res) =>{
     const id = Math.round(Math.random()*999)

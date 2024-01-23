@@ -2,7 +2,7 @@
   {
     "fullName": "Rohit Sharma",
     "email": "lpu@gmail.com",
-    "password": 1234567,
+    "password": "1234567",
     "id": 12
   },
   {
@@ -16,5 +16,11 @@
     "email": "shivam110721@gmail.com",
     "password": "123333333",
     "id": 516
+  },
+  {
+    "fullName": "",
+    "email": "",
+    "password": "",
+    "id": 364
   }
 ]
