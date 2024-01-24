@@ -7,7 +7,7 @@ const LazyLoading = () => {
     setCount(count + 1);
   };
 
-  
+
   if (count > 10) {
     throw new Error("Count should be less than 10");
   }
