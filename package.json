@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ag-charts-react": "^9.0.2",
+    "ag-grid-react": "^31.0.2",
     "axios": "^1.6.5",
     "bulma": "^0.9.4",
     "cors": "^2.8.5",
