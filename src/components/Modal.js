@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
+import ReactDom from "react-dom";
 
-const Modal = ({ isOpen, onClose, data }) => {
-    const [editData, setEditData] = useState(data);
+const MODAL2_STYLE = {
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translat(-50%, -50%)",
+  backgroundColor: "#FFF",
+  padding: "50px",
+  zIndex: 1000,
+};
 
+const OVERLAY_STYLE = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  backgroundColor: "rgba(0,0,0,.7)",
+  zIndex: 1000,
+};
 
-  return (
-    <div className={`modal ${isOpen ? 'is-active' : ''}`}>
-      <div className="modal-background" onClick={onClose}></div>
-      <div className="modal-content">
-        <div className="box">
-          <h2>Edit Data</h2>
-          <form>
-          {Object.entries(data).map(([key, value]) => (
-            <div key={key} className="field is-halfwidth">
-              <label className="label has-text-left">{key}</label>
-              <div className="control">
-                <input className="input" type="text" value={value}name={key}/>
-              </div>
-            </div>
-          ))}
-          <button className='button is-danger'>Submit</button>
-          </form>
-        </div>
+const Modal = ({ open, children, isClosed }) => {
+  if (!open) return null;
+
+  return ReactDom.createPortal(
+    <>
+      <div style={OVERLAY_STYLE}></div>
+      <div style={MODAL2_STYLE}>
+        <button onClick={isClosed}>Close Modal</button>
+        <div>{children}</div>
       </div>
-    </div>
+    </>,
+    document.getElementById("portal")
   );
 };
 
