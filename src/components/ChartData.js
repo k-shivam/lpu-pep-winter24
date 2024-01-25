@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { AgChartsReact } from 'ag-charts-react';
+import AuthProvider from './AuthProvider';
 
 const ChartData = () =>{
     const [chartOptions, setChartOptions] = useState({
@@ -20,5 +21,5 @@ const ChartData = () =>{
       )
 }
 
-export default ChartData;
+export default AuthProvider(ChartData);
 
