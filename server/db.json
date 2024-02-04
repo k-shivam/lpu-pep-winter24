@@ -1,0 +1,44 @@
+[
+  {
+    "userId": 62,
+    "postId": 123,
+    "title": "React",
+    "description": "React is a powerful tool for building front-end"
+  },
+  {
+    "userId": 62,
+    "postId": 214,
+    "title": "Server",
+    "description": "Server can be written in any programming langauge."
+  },
+  {
+    "userId": 62,
+    "postId": 910,
+    "title": "Check",
+    "description": "Test\n"
+  },
+  {
+    "userId": 62,
+    "postId": 941,
+    "title": "Got",
+    "description": "Working fine"
+  },
+  {
+    "userId": 62,
+    "postId": 581,
+    "title": "Fine",
+    "description": "Everything seems fine now"
+  },
+  {
+    "userId": 516,
+    "postId": 404,
+    "title": "First ",
+    "description": "This is my first post"
+  },
+  {
+    "userId": 516,
+    "postId": 958,
+    "title": "Headers ",
+    "description": "Decoding headers"
+  }
+]

@@ -9,16 +9,18 @@ const PostsList = React.lazy(() => import("./PostsList"))
 const SignUp = React.lazy(() => import("./Signup"))
 const CreatePost = React.lazy(() => import("./CreatePost"))
 const Charting = React.lazy(() => import("./CreatePost"))
+const Welcome = React.lazy(() => import("./Welcome"))
 
 
 const Routing = () =>{
+    const token = localStorage.getItem("token")
     return(
     <div>
             <Router>
                 <Suspense>
                 <NavBar/>
                 <Routes>
-                    <Route exact path="/" element={<PostsList/>}></Route>
+                    <Route exact path="/" element={token ? <PostsList/> : <Home/>}></Route>
                     <Route exact path="/about" element={<GrandChild/>}></Route>
                     <Route exact path="/login" element={<Login/>}></Route>
                     <Route exact path="/signup" element={<SignUp/>}></Route>
