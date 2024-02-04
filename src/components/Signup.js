@@ -19,7 +19,7 @@ const SignUp = () =>{
         }
         console.log(dataObj)
         try{
-            await axios.post("http://127.0.0.1:3002/addUser", dataObj);
+            await axios.post("https://data-server-node.onrender.com/addUser", dataObj);
         }catch(error){
             console.log(error)
         }

@@ -15,7 +15,7 @@ const PostsList = () =>{
 
     const getAPiData = async() =>{
         try{
-            const resp = await axios.get("http://127.0.0.1:3002/posts");
+            const resp = await axios.get("https://data-server-node.onrender.com/posts");
             setPostData(resp.data);
         }catch(err){
             console.log(err)
@@ -25,7 +25,7 @@ const PostsList = () =>{
     const handleEdit = async(id) =>{
         let data = {title: "Second"}
         try{
-            await axios.put(`http://127.0.0.1:3002/post/${id}`, data);
+            await axios.put(`https://data-server-node.onrender.com/post/${id}`, data);
             getAPiData()
         }catch(error){
             console.log(error)
@@ -34,7 +34,7 @@ const PostsList = () =>{
 
     const handleDelete = async(id) =>{
         try{
-            await axios.delete(`http://127.0.0.1:3002/post/${id}`);
+            await axios.delete(`https://data-server-node.onrender.com/post/${id}`);
             getAPiData()
         }catch(error){
             console.log(error)

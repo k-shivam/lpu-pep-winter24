@@ -14,7 +14,7 @@ const Welcome = () =>{
     }, [])
 
     const getDataFromApi = async() =>{
-        const response = await axios.get("http://127.0.0.1:3002/");
+        const response = await axios.get("https://data-server-node.onrender.com/");
         setApiData(response.data)
     }
 
@@ -25,7 +25,7 @@ const Welcome = () =>{
     const handleEdit = async(id) =>{
         const data = {email: "lpu@gmail.com"}
         try{
-            await axios.put(`http://127.0.0.1:3002/${id}`, data);
+            await axios.put(`https://data-server-node.onrender.com/${id}`, data);
         }catch(error){
             console.log(error)
         }
@@ -34,7 +34,7 @@ const Welcome = () =>{
 
     const handleDelete = async(id) =>{
         try{
-            await axios.delete(`http://127.0.0.1:3002/${id}`);
+            await axios.delete(`https://data-server-node.onrender.com/${id}`);
         }catch(error){
             console.log(error)
         }

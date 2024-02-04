@@ -26,7 +26,7 @@ const CreatePost = () =>{
         let headers = {"Authorization": localStorage.getItem("token")}
         console.log(payload)
         try{
-            const resp = await axios.post("http://127.0.0.1:3002/posts/create", payload,{
+            const resp = await axios.post("https://data-server-node.onrender.com/posts/create", payload,{
                 headers
             });
             const resData = resp.data
