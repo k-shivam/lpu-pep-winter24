@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = (props) =>{
-    // const {navBar} = props;
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
