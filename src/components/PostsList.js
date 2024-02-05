@@ -10,7 +10,7 @@ const PostsList = () => {
     const [apiData, setApiData] = useState([]);
 
     const getApiData = async() =>{
-        const response = await axios.get("http://127.0.0.1:3002/posts");
+        const response = await axios.get("https://data-server-node.onrender.com/posts");
         setApiData(response.data)
     }
 
@@ -27,7 +27,7 @@ const PostsList = () => {
         console.log(id)
         const payload = {title:"Angular"}
         try{
-            await axios.put(`http://127.0.0.1:3002/post/${id}`, payload);
+            await axios.put(`https://data-server-node.onrender.com/post/${id}`, payload);
             getApiData()
         }catch(error){
             console.log(error)
@@ -36,7 +36,7 @@ const PostsList = () => {
 
     const handleDelete = async(id) =>{
         try{
-            await axios.delete(`http://127.0.0.1:3002/post/${id}`);
+            await axios.delete(`https://data-server-node.onrender.com/post/${id}`);
             getApiData();
         }catch(err){
             console.log(err)

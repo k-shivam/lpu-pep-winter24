@@ -33,7 +33,7 @@ const Home = () => {
 
                             <br></br>
                             <br></br>
-                            <p className="subtitle"><Link style={{ color:"black"}} to="/">You can view List Page Here</Link></p>
+                            <p className="subtitle"><Link style={{ color:"black"}} to="/posts">You can view List Page Here</Link></p>
                             </div>}
                         </div> 
                     </div>

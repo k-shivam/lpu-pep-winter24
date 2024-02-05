@@ -14,6 +14,7 @@ const Counter = lazy(() => import("./Counter"))
 
 
 const Routing = () =>{
+    const token = localStorage.getItem("token")
 
     return (
         <div>
@@ -21,7 +22,7 @@ const Routing = () =>{
                 <NavBar/>
                 <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route exact path="/" element={<PostsList/>}></Route>
+                    <Route exact path="/" element={<Home/>}></Route>
                     <Route exact path="/login" element={<Login/>}></Route>
                     <Route exact path="/signup" element={<SignUp/>}></Route>
                     <Route exact path="/home" element={<Home/>}></Route>
@@ -29,6 +30,7 @@ const Routing = () =>{
                     <Route exact path="/counter" element={<Counter/>}></Route>
                     <Route exact path="/create/post" element={<CreatePost/>}></Route> 
                     <Route exact path="/charts" element={<ChartData/>}></Route>
+                    <Route exact path="/posts" element={<PostsList/>}></Route>
                 </Routes>
                 </Suspense>
             </Router>

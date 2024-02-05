@@ -5,6 +5,7 @@ import axios from "axios";
 const Login = () =>{
     const navigate = useNavigate();
     const [userId, setUserId] = useState('')
+    const [error, setError] = useState(null);
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -19,13 +20,14 @@ const Login = () =>{
         event.preventDefault()
         if(validateForm()){
             try{
-                const resp = await axios.post("http://127.0.0.1:3002/signin", data);
-                console.log(resp.data)
+                const resp = await axios.post("https://data-server-node.onrender.com/signin", data);
+                console.log(resp)
                 const token = resp.data.token;
                 localStorage.setItem("token", token)
                 localStorage.setItem("userId", parseInt(resp.data.data.id))
             }catch(err){
-                console.log(err);
+                setError(err.message)
+                return
             }
             navigate('/')
         }
@@ -64,6 +66,7 @@ const Login = () =>{
             <div className="hero-head">
                 <div className="hero-body">
                     <div className="container">
+                        <p style={{backgroundColor: "red"}}>{error}</p>
                         <div className="box">
                             <form onSubmit={handleSubmit}>
                                 <div className="field">

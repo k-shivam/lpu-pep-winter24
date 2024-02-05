@@ -13,7 +13,7 @@ const Signup = () =>{
     const handleSubmit = async(event) =>{
         event.preventDefault();
         try{
-            await axios.post("http://127.0.0.1:3002/addUser", data)
+            await axios.post("https://data-server-node.onrender.com/addUser", data)
         }catch(error){
             console.log(error)
         }

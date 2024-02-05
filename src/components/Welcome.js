@@ -10,7 +10,7 @@ const Welcome = () => {
     const [apiData, setApiData] = useState([]);
 
     const getApiData = async() =>{
-        const response = await axios.get("http://127.0.0.1:3002/");
+        const response = await axios.get("https://data-server-node.onrender.com/");
         setApiData(response.data)
     }
 
@@ -26,7 +26,7 @@ const Welcome = () => {
         console.log(id)
         const payload = {fullName:"Akhil Kumar"}
         try{
-            await axios.put(`http://127.0.0.1:3002/${id}`, payload);
+            await axios.put(`https://data-server-node.onrender.com/${id}`, payload);
             getApiData()
         }catch(error){
             console.log(error)
