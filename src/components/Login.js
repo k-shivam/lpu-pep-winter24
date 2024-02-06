@@ -54,7 +54,9 @@ const Login = () =>{
 
 
     return (
-        <div className="container">
+        <div className="container hero-body" style={{backgroundColor: "grey"}}>
+            <div className="columns is-centered">
+                <div className="column is-half">
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Email</label>
@@ -68,6 +70,7 @@ const Login = () =>{
                             onChange={handleChange}
                         ></input>
                         {errors.email && (<p className="is-danger">{errors.email}</p>)}
+                        <label className="label">Password</label>
                         <input
                             className="input"
                             type="password"
@@ -84,6 +87,8 @@ const Login = () =>{
                     <button className="button is-warning">Login</button>
                 </div>
             </form>
+            </div>
+            </div>
         </div>
     )
 }
